@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberBridge AI | Cyber Fraud Reporting Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .nav-item.active {
+            border-bottom: 3px solid var(--primary);
+            font-weight: 600;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .security-badge {
+            border: 2px solid var(--primary);
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-3xl text-blue-600"></i>
+                    <h1 class="text-2xl font-bold text-blue-800">CyberBridge AI</h1>
+                </div>
+                <span class="security-badge">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure Portal</span>
+                </span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#" class="nav-item active" data-section="home">Home</a>
+                <a href="#" class="nav-item" data-section="report">Report Fraud</a>
+                <a href="#" class="nav-item" data-section="tracker">Case Tracker</a>
+                <a href="#" class="nav-item" data-section="about" style="outline: rgb(0, 0, 0) dotted 3px; outline-offset: 1px;">About</a>
+            </nav>
+            <button class="md:hidden" id="mobileMenuBtn">
+                <i class="fas fa-bars text-2xl text-blue-600"></i>
+            </button>
+        </div>
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+            <a href="#" class="block px-4 py-3 hover:bg-blue-50 nav-item active" data-section="home">Home</a>
+            <a href="#" class="block px-4 py-3 hover:bg-blue-50 nav-item" data-section="report">Report Fraud</a>
+            <a href="#" class="block px-4 py-3 hover:bg-blue-50 nav-item" data-section="tracker">Case Tracker</a>
+            <a href="#" class="block px-4 py-3 hover:bg-blue-50 nav-item" data-section="about" style="outline: rgb(0, 0, 0) dotted 3px; outline-offset: 1px;">About</a>
+            <div class="px-4 py-3 flex gap-2">
+                <button class="btn-primary w-full">Bank Login</button>
+                <button class="btn-primary w-full">Police Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero mb-12 relative overflow-hidden rounded-xl">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ed66d7a0-7576-48fd-ab6d-d1441eabe332.png" alt="Digital security concept showing a shield protecting financial transactions and personal data" class="w-full h-auto">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-600/70 flex items-center">
+                    <div class="container mx-auto px-8 text-white max-w-3xl">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">Fighting Telegram Scams and Cyber Fraud in India</h1>
+                        <p class="text-xl mb-6">Founded by Tejas Musale after experiencing financial fraud, we're working to improve India's 4% fraud recovery rate through rapid response and AI-powered solutions.</p>
+                        <button class="btn-primary text-lg px-8 py-3">Report Fraud Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="card p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-user-shield text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Victim Protection</h3>
+                    </div>
+                    <p>Our platform ensures your sensitive information is handled securely while providing rapid assistance during cyber fraud incidents.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-exchange-alt text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Seamless Connect</h3>
+                    </div>
+                    <p>Automatically links your fraud report with relevant bank authorities and cyber police departments for coordinated action.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-bolt text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Rapid Response</h3>
+                    </div>
+                    <p>Our AI-powered system prioritizes and routes cases to ensure fastest possible resolution, reducing financial losses.</p>
+                </div>
+            </div>
+
+            <div class="card p-6 mb-8 bg-red-50 text-center">
+                <h3 class="text-xl font-bold mb-2">The Harsh Reality</h3>
+                <p class="text-4xl font-bold text-red-600 mb-2">Only 4%</p>
+                <p class="text-gray-700">of cyber fraud cases in India result in money recovery. We're working to change that.</p>
+            </div>
+
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-6">How CyberBridge AI Works</h2>
+                <div class="grid md:grid-cols-4 gap-6 mb-12">
+                    <div class="step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 font-bold text-xl">1</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Report Incident</h3>
+                        <p class="text-sm">Submit details of the cyber fraud through our secure form.</p>
+                    </div>
+                    <div class="step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 font-bold text-xl">2</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">AI Verification</h3>
+                        <p class="text-sm">Our system validates and categorizes your complaint.</p>
+                    </div>
+                    <div class="step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 font-bold text-xl">3</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Account Freeze</h3>
+                        <p class="text-sm">Instant notification to your bank to freeze involved accounts.</p>
+                    </div>
+                    <div class="step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 font-bold text-xl">4</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">FIR Generation</h3>
+                        <p class="text-sm">Cyber police department initiates official investigation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-8 mb-12 bg-blue-50 border border-blue-200">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f4e1ddef-7929-4d92-a810-16573fa5fd68.png" alt="Team of cybersecurity experts and law enforcement officers collaborating in a modern office" class="rounded-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+                        <p class="mb-4">After losing money to a Telegram scam myself, I created CyberBridge AI to help other victims. In India, only 4% of fraud cases result in money recovery - we're changing that.</p>
+                        <p>Our AI-powered platform connects victims with banks and police faster than traditional methods, while providing education to prevent future scams.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h2 class="text-2xl font-bold mb-6">Trusted By</h2>
+                <div class="flex flex-wrap justify-center gap-8 items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f741a49-073d-4156-871a-c4ef021b07d6.png" alt="Logo of National Bank" class="h-12 w-auto opacity-70">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c053ef46-3aa9-4525-9652-089074313fe0.png" alt="Logo of Digital Security Authority" class="h-12 w-auto opacity-70">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f7f9d0bd-f660-44e8-bd2f-eb70adf90dbb.png" alt="Logo of Cyber Crime Police Department" class="h-12 w-auto opacity-70">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7019e756-93d0-4ed5-8bbb-c1ec954f235b.png" alt="Logo of Financial Services Commission" class="h-12 w-auto opacity-70">
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Fraud Section -->
+        <section id="report" class="section">
+            <div class="max-w-3xl mx-auto">
+                <div class="flex items-center gap-4 mb-8">
+                    <i class="fas fa-exclamation-triangle text-3xl text-red-500"></i>
+                    <h1 class="text-3xl font-bold">Report Cyber Fraud</h1>
+                </div>
+
+                <div class="card p-8">
+                    <form id="fraudReportForm">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-800">Victim Information</h3>
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block mb-2 font-medium">Full Name</label>
+                                    <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 font-medium">Email Address</label>
+                                    <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="phone" class="block mb-2 font-medium">Phone Number</label>
+                                    <input type="tel" id="phone" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label for="idProof" class="block mb-2 font-medium">ID Proof Number</label>
+                                    <input type="text" id="idProof" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-800">Fraud Details</h3>
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="bankName" class="block mb-2 font-medium">Bank Name</label>
+                                    <select id="bankName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                        <option value="">Select Bank</option>
+                                        <option value="National Bank">National Bank</option>
+                                        <option value="United Commercial">United Commercial</option>
+                                        <option value="Digital Trust">Digital Trust</option>
+                                        <option value="Global Finance">Global Finance</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="transactionId" class="block mb-2 font-medium">Transaction ID</label>
+                                    <input type="text" id="transactionId" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="fraudType" class="block mb-2 font-medium">Type of Fraud</label>
+                                <select id="fraudType" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    <option value="">Select Fraud Type</option>
+                                    <option value="Phishing">Phishing</option>
+                                    <option value="Unauthorized Transaction">Unauthorized Transaction</option>
+                                    <option value="Identity Theft">Identity Theft</option>
+                                    <option value="Investment Scam">Investment Scam</option>
+                                    <option value="Account Takeover">Account Takeover</option>
+                                    <option value="Telegram Scam">Telegram Scam</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="amount" class="block mb-2 font-medium">Amount Involved (if any)</label>
+                                <input type="number" id="amount" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="description" class="block mb-2 font-medium">Full Description of Incident</label>
+                                <textarea id="description" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-800">Supporting Documents</h3>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <input type="file" id="documents" class="hidden" multiple>
+                                <label for="documents" class="cursor-pointer">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-blue-500 mb-2"></i>
+                                    <p class="font-medium">Click to upload screenshots or documents</p>
+                                    <p class="text-sm text-gray-500">PNG, JPG, PDF up to 5MB</p>
+                                </label>
+                                <div id="fileList" class="mt-4 text-sm text-left hidden"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="consent" name="consent" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" required>
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="consent" class="font-medium text-gray-700">I consent to sharing this information with my bank and local cyber police for investigation purposes.</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-8">
+                            <span class="text-sm text-gray-500">
+                                <i class="fas fa-lock"></i> Your information is encrypted and secured
+                            </span>
+                            <button type="submit" class="btn-primary px-8 py-3">
+                                Submit Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Tracker Section -->
+        <section id="tracker" class="section">
+            <div class="max-w-3xl mx-auto">
+                <div class="flex items-center gap-4 mb-8">
+                    <i class="fas fa-search text-3xl text-blue-600"></i>
+                    <h1 class="text-3xl font-bold">Case Tracker</h1>
+                </div>
+
+                <div class="card p-8 mb-8">
+                    <form id="caseTrackForm">
+                        <div class="mb-6">
+                            <label for="caseId" class="block mb-2 font-medium text-lg">Enter Your Case ID</label>
+                            <input type="text" id="caseId" placeholder="Ex: CB-2023-5A8B2C" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 text-lg">Track Case</button>
+                    </form>
+                </div>
+
+                <div class="card p-8 hidden" id="caseDetails">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Case #CB-2023-5A8B2C</h2>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Active</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <p class="text-sm text-blue-600 mb-1">Reported On</p>
+                            <p class="font-medium">June 15, 2023, 14:30 IST</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <p class="text-sm text-blue-600 mb-1">Fraud Type</p>
+                            <p class="font-medium">Unauthorized Transaction</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <p class="text-sm text-blue-600 mb-1">Amount Involved</p>
+                            <p class="font-medium">₹12,500</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4">Case Timeline</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 border-l-4 border-blue-500 pl-4 py-2">
+                            <div class="mt-1">
+                                <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Case Registered</p>
+                                <p class="text-sm text-gray-500">June 15, 2023, 14:35 IST</p>
+                                <p class="text-sm mt-1">Your complaint has been received and registered in our system.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 border-l-4 border-blue-500 pl-4 py-2">
+                            <div class="mt-1">
+                                <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Bank Notified</p>
+                                <p class="text-sm text-gray-500">June 15, 2023, 14:38 IST</p>
+                                <p class="text-sm mt-1">National Bank has been notified to freeze the involved accounts.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 border-l-4 border-blue-500 pl-4 py-2">
+                            <div class="mt-1">
+                                <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Police FIR Generated</p>
+                                <p class="text-sm text-gray-500">June 15, 2023, 16:42 IST</p>
+                                <p class="text-sm mt-1">FIR #CP/2023/4562 has been registered with Cyber Crime Police.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 border-l-4 border-blue-300 pl-4 py-2">
+                            <div class="mt-1">
+                                <div class="bg-blue-300 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                                    <i class="fas fa-spinner fa-pulse"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Investigation Ongoing</p>
+                                <p class="text-sm text-gray-500">June 16, 2023, 09:15 IST</p>
+                                <p class="text-sm mt-1">The investigation team is reviewing transaction details and gathering evidence.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 border-l-4 border-gray-200 pl-4 py-2">
+                            <div class="mt-1">
+                                <div class="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center">
+                                    <i class="fas fa-clock text-gray-400"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-400">Resolution</p>
+                                <p class="text-sm text-gray-400">Pending</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="card p-4">
+                                <h4 class="font-medium mb-2"><i class="fas fa-university text-blue-600 mr-2"></i>Bank Contact</h4>
+                                <p class="text-sm mb-1">National Bank - Cyber Fraud Division</p>
+                                <p class="text-sm mb-1"><span class="font-medium">Email:</span> fraud@nationalbank.com</p>
+                                <p class="text-sm"><span class="font-medium">Phone:</span> 1800-123-4567</p>
+                            </div>
+                            <div class="card p-4">
+                                <h4 class="font-medium mb-2"><i class="fas fa-shield-alt text-blue-600 mr-2"></i>Police Contact</h4>
+                                <p class="text-sm mb-1">Cyber Crime Police Station</p>
+                                <p class="text-sm mb-1"><span class="font-medium">Email:</span> cyberpolice@state.gov</p>
+                                <p class="text-sm"><span class="font-medium">Phone:</span> 100 (Emergency)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl font-bold mb-8 text-center">About CyberBridge AI</h1>
+                
+                <div class="card p-8 mb-12">
+                    <div class="flex flex-col md:flex-row gap-8 mb-8">
+                        <div class="md:w-1/2">
+                            <h2 class="text-2xl font-bold mb-4">Our Story</h2>
+                            <p class="mb-4">Founded in 2022, CyberBridge AI emerged from the recognition that victims of cyber fraud often face delays and bureaucratic hurdles when trying to report incidents and recover lost funds.</p>
+                            <p>Our platform was developed with technical collaboration from cybersecurity experts, banking professionals, and law enforcement agencies to create a seamless reporting and response system.</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca133234-1a57-46c1-ad03-401e6832a5c7.png" alt="CyberBridge AI team members collaborating in a modern tech office with computer screens displaying security analytics" class="rounded-lg w-full">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-center">Leadership Team</h2>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c19fdfe4-24f9-4565-8aee-0b9e27f70868.png" alt="Portrait of Tejas Musale, Founder" class="rounded-full w-40 h-40 object-cover mx-auto mb-4">
+                                <h3 class="font-bold text-lg">Tejas Musale</h3>
+                                <p class="text-blue-600 mb-2">Founder</p>
+                                <p class="text-sm">Victim-led initiative to combat cyber fraud and improve recovery rates in India.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-center">Advisory Board</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex gap-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d3aeb051-1473-46cf-84e0-da4325568172.png" alt="Portrait of Dr. Sanjay Patel, Cybersecurity Professor at Tech University" class="rounded-full w-20 h-20 object-cover">
+                                <div>
+                                    <h3 class="font-bold">Dr. Sanjay Patel</h3>
+                                    <p class="text-blue-600 text-sm mb-1">Cybersecurity Professor, Tech University</p>
+                                    <p class="text-xs">Specializing in AI-driven fraud detection systems.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/07ba3f68-4fae-497e-9f79-ed5fce9ae27a.png" alt="Portrait of Neha Gupta, Former Fintech Startup Founder" class="rounded-full w-20 h-20 object-cover">
+                                <div>
+                                    <h3 class="font-bold">Neha Gupta</h3>
+                                    <p class="text-blue-600 text-sm mb-1">Former Fintech Startup Founder</p>
+                                    <p class="text-xs">Expert in user experience for security platforms.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/46a2348f-6749-479c-a976-7b709046c9e3.png" alt="Portrait of Commissioner Arun Desai, Cybercrime Specialist" class="rounded-full w-20 h-20 object-cover">
+                                <div>
+                                    <h3 class="font-bold">Commissioner Arun Desai</h3>
+                                    <p class="text-blue-600 text-sm mb-1">Cybercrime Specialist</p>
+                                    <p class="text-xs">Led national cybercrime task force initiatives.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3bf147a4-3942-48da-ae9c-7b9851784562.png" alt="Portrait of Priya Khanna, Legal Expert in Digital Rights" class="rounded-full w-20 h-20 object-cover">
+                                <div>
+                                    <h3 class="font-bold">Priya Khanna</h3>
+                                    <p class="text-blue-600 text-sm mb-1">Legal Expert, Digital Rights</p>
+                                    <p class="text-xs">Specializes in privacy and data protection laws.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-8 mb-12">
+                    <h2 class="text-2xl font-bold mb-6 text-center">Contact Us</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <form id="contactForm">
+                                <div class="mb-4">
+                                    <label for="contactName" class="block mb-2 font-medium">Name</label>
+                                    <input type="text" id="contactName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="contactEmail" class="block mb-2 font-medium">Email</label>
+                                    <input type="email" id="contactEmail" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="contactSubject" class="block mb-2 font-medium">Subject</label>
+                                    <select id="contactSubject" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                        <option value="">Select Subject</option>
+                                        <option value="General Inquiry">General Inquiry</option>
+                                        <option value="Report Issue">Report Issue</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Press Inquiry">Press Inquiry</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="contactMessage" class="block mb-2 font-medium">Message</label>
+                                    <textarea id="contactMessage" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary w-full py-3">Send Message</button>
+                            </form>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4">Our Offices</h3>
+                            <div class="mb-6">
+                                <h4 class="font-medium mb-1"><i class="fas fa-building text-blue-600 mr-2"></i>Headquarters</h4>
+                                <p class="text-sm">CyberBridge AI Tower,<br> Financial District,<br> New Delhi - 110001</p>
+                            </div>
+                            <div class="mb-6">
+                                <h4 class="font-medium mb-1"><i class="fas fa-phone-alt text-blue-600 mr-2"></i>Contact Numbers</h4>
+                                <p class="text-sm mb-1">General Inquiries: +91 11 12345678</p>
+                                <p class="text-sm">Emergency Fraud Reporting: +91 11 87654321</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1"><i class="fas fa-envelope text-blue-600 mr-2"></i>Email</h4>
+                                <p class="text-sm mb-1">General: info@cyberbridgeai.org</p>
+                                <p class="text-sm mb-1">Fraud Reports: reports@cyberbridgeai.org</p>
+                                <p class="text-sm">Press: media@cyberbridgeai.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold mb-6">Partners & Recognition</h2>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cc030a05-3b00-4213-90f2-420eed7d1d7d.png" alt="Logo of National Cybersecurity Association" class="h-12 w-auto opacity-70">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1cc05824-e488-4551-98d5-5c0818907b7c.png" alt="Logo of Digital India Initiative" class="h-12 w-auto opacity-70">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8383543c-81f5-4871-a631-4cd30fe4594a.png" alt="Logo of Banking Security Coalition" class="h-12 w-auto opacity-70">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6f31ae35-4161-4061-9a0d-9d5cfe21885b.png" alt="Logo of Tech Innovation Awards" class="h-12 w-auto opacity-70">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Dashboard Section (Mock) -->
+        <section id="bank-dashboard" class="section">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center gap-4 mb-8">
+                    <i class="fas fa-university text-3xl text-blue-600"></i>
+                    <h1 class="text-3xl font-bold">Bank Dashboard</h1>
+                </div>
+
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <p class="text-sm text-gray-500">Logged in as <span class="font-medium">National Bank</span></p>
+                        <p class="text-sm text-gray-500">Last sync: Today, 11:42 AM</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="flex items-center gap-2 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-lg">
+                            <i class="fas fa-sync-alt text-blue-600"></i>
+                            <span>Refresh</span>
+                        </button>
+                        <button class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-download"></i>
+                            <span>Export</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card p-8 mb-8">
+                    <h2 class="text-xl font-bold mb-6">Flagged Transactions</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Case ID</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CB-2023-5A8B2C</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rajesh Kumar</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹12,500</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Unauthorized Transaction</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-red-600 hover:text-red-900 mr-4">Freeze</button>
+                                        <button class="text-blue-600 hover:text-blue-900">Details</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CB-2023-9D4F1E</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Priya Sharma</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹23,000</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Phishing Scam</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Frozen</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900">Details</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CB-2023-3C7B5A</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Amit Patel</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹7,800</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Account Takeover</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Blocked</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900">Details</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CB-2023-2G8H7D</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Neha Gupta</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹15,200</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Investment Scam</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Frozen</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900">Details</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4">Fraud Statistics</h2>
+                        <div class="h-64">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3e488cc7-6881-4615-91cb-da85e9f83d5d.png" alt="Bar chart showing fraud cases by type with phishing being the most common" class="w-full h-full object-cover rounded">
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4">Quick Actions</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="p-4 bg-red-50 hover:bg-red-100 rounded-lg flex flex-col items-center">
+                                <div class="bg-red-100 p-3 rounded-full mb-2">
+                                    <i class="fas fa-lock text-red-600"></i>
+                                </div>
+                                <span class="font-medium">Freeze Account</span>
+                            </button>
+                            <button class="p-4 bg-blue-50 hover:bg-blue-100 rounded-lg flex flex-col items-center">
+                                <div class="bg-blue-100 p-3 rounded-full mb-2">
+                                    <i class="fas fa-ban text-blue-600"></i>
+                                </div>
+                                <span class="font-medium">Block Transaction</span>
+                            </button>
+                            <button class="p-4 bg-green-50 hover:bg-green-100 rounded-lg flex flex-col items-center">
+                                <div class="bg-green-100 p-3 rounded-full mb-2">
+                                    <i class="fas fa-history text-green-600"></i>
+                                </div>
+                                <span class="font-medium">Transaction History</span>
+                            </button>
+                            <button class="p-4 bg-purple-50 hover:bg-purple-100 rounded-lg flex flex-col items-center">
+                                <div class="bg-purple-100 p-3 rounded-full mb-2">
+                                    <i class="fas fa-user-shield text-purple-600"></i>
+                                </div>
+                                <span class="font-medium">Customer Profile</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Police Dashboard Section (Mock) -->
+        <section id="police-dashboard" class="section">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center gap-4 mb-8">
+                    <i class="fas fa-shield-alt text-3xl text-blue-600"></i>
+                    <h1 class="text-3xl font-bold">Cyber Police Dashboard</h1>
+                </div>
+
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <p class="text-sm text-gray-500">Logged in as <span class="font-medium">Cyber Crime Police Station - New Delhi</span></p>
+                        <p class="text-sm text-gray-500">Department: Fraud Investigation Unit</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-plus"></i>
+                            <span>New FIR</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card p-8 mb-8">
+                    <h2 class="text-xl font-bold mb-6">Active Cases</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">FIR No.</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Case ID</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Complainant</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fraud Type</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CP/2023/4562</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">CB-2023-5A8B2C</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rajesh Kumar</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Unauthorized Transaction</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹12,500</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900 mr-4">Update</button>
+                                        <button class="text-green-600 hover:text-green-900">Resolve</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CP/2023/4675</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">CB-2023-9D4F1E</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Priya Sharma</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Phishing Scam</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹23,000</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900 mr-4">Update</button>
+                                        <button class="text-green-600 hover:text-green-900">Resolve</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CP/2023/4789</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">CB-2023-3C7B5A</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Amit Patel</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Account Takeover</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹7,800</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">Court Filed</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900">Details</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CP/2023/4873</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">CB-2023-2G8H7D</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Neha Gupta</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Investment Scam</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹15,200</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending Review</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900 mr-4">Assign</button>
+                                        <button class="text-green-600 hover:text-green-900">FIR</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4">Case Statistics</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">Total Cases This Month</p>
+                                <p class="text-2xl font-bold">42</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">Cases Resolved</p>
+                                <p class="text-2xl font-bold text-green-600">18</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">Pending Investigation</p>
+                                <p class="text-2xl font-bold text-yellow-600">24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4">Generate FIR</h2>
+                        <form id="firForm">
+                            <div class="mb-4">
+                                <label for="firCaseId" class="block mb-2 text-sm font-medium">Case ID</label>
+                                <input type="text" id="firCaseId" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="CB-2023-XXXXXX">
+                            </div>
+                            <div class="mb-4">
+                                <label for="firDetails" class="block mb-2 text-sm font-medium">FIR Details</label>
+                                <textarea id="firDetails" rows="4" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter incident details..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full">Generate FIR Document</button>
+                        </form>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4">Team Assignments</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-medium mb-1">Investigation Team A</p>
+                                <p class="text-sm text-gray-500">8 Active Cases</p>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium mb-1">Investigation Team B</p>
+                                <p class="text-sm text-gray-500">6 Active Cases</p>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-medium mb-1">Forensics Team</p>
+                                <p class="text-sm text-gray-500">4 Active Cases</p>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Modals -->
+        <div class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20" id="bankLoginModal">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Bank Login</h2>
+                    <button class="text-gray-500 hover:text-gray-700" id="closeBankLogin">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="bankLoginForm">
+                    <div class="mb-4">
+                        <label for="bankUsername" class="block mb-2 font-medium">Bank ID</label>
+                        <input type="text" id="bankUsername" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter bank ID">
+                    </div>
+                    <div class="mb-6">
+                        <label for="bankPassword" class="block mb-2 font-medium">Password</label>
+                        <input type="password" id="bankPassword" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-3">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20" id="policeLoginModal">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Police Portal Login</h2>
+                    <button class="text-gray-500 hover:text-gray-700" id="closePoliceLogin">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="policeLoginForm">
+                    <div class="mb-4">
+                        <label for="policeBadge" class="block mb-2 font-medium">Badge Number</label>
+                        <input type="text" id="policeBadge" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter badge number">
+                    </div>
+                    <div class="mb-6">
+                        <label for="policePassword" class="block mb-2 font-medium">Password</label>
+                        <input type="password" id="policePassword" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-3">Login</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">CyberBridge AI</h3>
+                    <p class="text-sm text-gray-400">Connecting victims with financial institutions and law enforcement to combat cyber fraud.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">Report Fraud</a></li>
+                        <li><a href="#" class="hover:text-white">Track Case</a></li>
+                        <li><a href="#" class="hover:text-white">Safety Tips</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">Cyber Crime Laws</a></li>
+                        <li><a href="#" class="hover:text-white">Banking Policies</a></li>
+                        <li><a href="#" class="hover:text-white">Recovery Guides</a></li>
+                        <li><a href="#" class="hover:text-white">Security Checklists</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 11 12345678</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>help@cyberbridgeai.org</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>CyberBridge Tower, New Delhi</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">© 2023 CyberBridge AI. All rights reserved.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show mobile menu
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+
+            // Navigation between sections
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.section');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items
+                    navItems.forEach(navItem => navItem.classList.remove('active'));
+                    
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Show the target section
+                    const targetSection = this.getAttribute('data-section');
+                    document.getElementById(targetSection).classList.add('active');
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                });
+            });
+
+            // Form submissions - mock functionality
+            document.getElementById('fraudReportForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Your fraud report has been submitted successfully. A case ID will be sent to your email shortly.');
+            });
+
+            document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message. We will respond to you shortly.');
+                this.reset();
+            });
+
+            document.getElementById('caseTrackForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('caseDetails').classList.remove('hidden');
+                window.scrollTo({
+                    top: document.getElementById('caseDetails').offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Login buttons functionality
+            document.querySelector('header .btn-primary:first-child')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('bankLoginModal').classList.remove('hidden');
+            });
+
+            document.querySelector('header .btn-primary:last-child')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('policeLoginModal').classList.remove('hidden');
+            });
+
+            // Close login modals
+            document.getElementById('closeBankLogin')?.addEventListener('click', function() {
+                document.getElementById('bankLoginModal').classList.add('hidden');
+            });
+
+            document.getElementById('closePoliceLogin')?.addEventListener('click', function() {
+                document.getElementById('policeLoginModal').classList.add('hidden');
+            });
+
+            // Login forms - mock functionality
+            document.getElementById('bankLoginForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Bank login successful! Redirecting to dashboard...');
+                document.getElementById('bankLoginModal').classList.add('hidden');
+                
+                // Navigate to bank dashboard
+                navItems.forEach(navItem => navItem.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+                document.getElementById('bank-dashboard').classList.add('active');
+            });
+
+            document.getElementById('policeLoginForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Police login successful! Redirecting to dashboard...');
+                document.getElementById('policeLoginModal').classList.add('hidden');
+                
+                // Navigate to police dashboard
+                navItems.forEach(navItem => navItem.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+                document.getElementById('police-dashboard').classList.add('active');
+            });
+
+            // Handle file upload display
+            const fileInput = document.getElementById('documents');
+            const fileList = document.getElementById('fileList');
+
+            if(fileInput && fileList) {
+                fileInput.addEventListener('change', function() {
+                    if(this.files.length > 0) {
+                        fileList.innerHTML = '';
+                        fileList.classList.remove('hidden');
+                        
+                        for(let i = 0; i < this.files.length; i++) {
+                            const fileItem = document.createElement('div');
+                            fileItem.className = 'flex justify-between items-center p-2 border-b border-gray-100';
+                            fileItem.innerHTML = `
+                                <span class="text-sm truncate max-w-xs">${this.files[i].name}</span>
+                                <button class="text-red-500" data-index="${i}">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            `;
+                            fileList.appendChild(fileItem);
+                        }
+                        
+                        // Add event listeners to remove buttons
+                        fileList.querySelectorAll('button').forEach(btn => {
+                            btn.addEventListener('click', function() {
+                                const dt = new DataTransfer();
+                                const files = fileInput.files;
+                                const index = parseInt(this.getAttribute('data-index'));
+                                
+                                for(let i = 0; i < files.length; i++) {
+                                    if(index !== i) {
+                                        dt.items.add(files[i]);
+                                    }
+                                }
+                                
+                                fileInput.files = dt.files;
+                                this.parentNode.remove();
+                                
+                                if(fileInput.files.length === 0) {
+                                    fileList.classList.add('hidden');
+                                }
+                            });
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

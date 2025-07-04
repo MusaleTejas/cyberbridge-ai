@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo 
 [🔗 View Demo] 
-*([Replace with your Dora AI prototype or Vercel link](https://musaletejas.github.io/cyberbridge-ai/))*
+*([Prototype](https://musaletejas.github.io/cyberbridge-ai/))*
 
 ---
 

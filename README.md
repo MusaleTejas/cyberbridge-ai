@@ -5,7 +5,7 @@
 ---
 
 ## 🌐 Live Demo (Optional)
-[🔗 View Demo]("#")  
+[🔗 View Demo]("https://musaletejas.github.io/cyberbridge-ai/")  
 *(Replace with your Dora AI prototype or Vercel link)*
 
 ---
